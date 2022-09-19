@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    {% block custom-head %}
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Проекты</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% endblock %}
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+    {% block header %}
+      <li><a class="active" href="{% url 'main:index' %}">Главная</a></li>
+      <li><a href="{% url 'projects:get_all_projects_page' %}"><b>Проекты</b></a></li>
+      <li><a href="{% url 'events:get_all_events_page' %}">События</a></li>
+    {% endblock %}
+
+    {% block content %}
+    <div class="rectangle"></div>
+    {% for project in projects %}
+    <div class="about_area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-5 col-md-6">
+                    <div class="about_thumb">
+                        <img class="img-fluid" src="{% static project.image %}" alt="">
+                    </div>
+                </div>
+                <div class="col-xl-7 col-md-6">
+                    <div class="about_info">
+                        <h3>{{ project.title }}</h3>
+                        <div class="big-text"><p>
+                          {{ project.description }}
+                        </p></div>
+                        <b>Технологии</b>
+                        <p>{{ project.technologies }}</p>
+                        <p>{{ project.date }}</p>
+                        <p><a href="{% url 'projects:get_project_page' project.title %}"><b>Подробнее...</b></a></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% endblock %}
+
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    {% block custom-head %}
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Портфолио</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {%  endblock %}
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+    {% block header %}
+      <li><a class="active" href="{% url 'main:index' %}"><b>Главная</b></a></li>
+      <li><a href={% url 'projects:get_all_projects_page' %}>Проекты</a></li>
+      <li><a href="{% url 'events:get_all_events_page' %}">События</a></li>
+    {% endblock %}
+    {% block content %}
+    <div class="slider_area">
+        <div class="vanta-background">
+            <div class="single_slider  d-flex align-items-center slider_bg_1 overlay2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="slider_text text-center">
+                                <div class="title-name">
+                                    <h3>Добро пожаловать</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about_area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-5 col-md-6">
+                    <div class="about_thumb">
+                        <img class="img-fluid" src="{% static 'img/about/me.jpg' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-xl-7 col-md-6">
+                    <div class="about_info">
+                        <h3>Дамир <b>Нас</b>ибулли<b>н</b></h3>
+                        <p>Студент, начинающий веб-разработчик, развиваюсь в Backend направлении.
+Есть опыт коммерческой разработки.
+Изучил несколько книг, также прошел несколько курсов на Stepik.
+Уже успел поучаствовать в нескольких IT конференциях и хакатоне.</p>
+                        <h3>Технологии</h3>
+                        <p><b>Python, Django, HTML, CSS, SQL, Git</b><br>C#, JS, Docker, Flask, FastAPI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gallery_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title text-center mb-65">
+                        <h3>Некоторые проекты</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row grid">
+                    <div class="col-xl-5 col-lg-5 grid-item cat1 col-md-6">
+                        <a href="{% url 'projects:get_project_page' 'Парсер сайтов' %}">
+                            <div class="single-gallery mb-30">
+                                    <div class="portfolio-img">
+                                            <img src="{% static 'img/projects/Screenshot_2022-09-15_161104.png' %}" alt="">
+                                    </div>
+                                    <div class="gallery_hover">
+                                    </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-7 col-lg-7 grid-item cat3 cat4 col-md-6">
+                        <a href="{% url 'projects:get_project_page' 'Морской бой' %}">
+                            <div class="single-gallery mb-30">
+                                    <div class="portfolio-img">
+                                            <img src="{% static 'img/projects/Screenshot_2022-09-15_160229.png' %}" alt="">
+                                    </div>
+                                    <div class="gallery_hover">
+
+                                    </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 grid-item cat4 col-md-6">
+                        <a href="{% url 'projects:get_project_page' 'Отчеты' %}">
+                            <div class="single-gallery mb-30">
+                                    <div class="portfolio-img">
+                                            <img src="{% static 'img/projects/form.jpg' %}" alt="">
+                                    </div>
+                                    <div class="gallery_hover">
+                                    </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 grid-item cat2 col-md-6">
+                        <a href="{% url 'projects:get_project_page' 'Блог' %}">
+                            <div class="single-gallery mb-30">
+                                <div class="portfolio-img">
+                                        <img src="{% static 'img/projects/Screenshot_2022-09-15_155231.png' %}" alt="">
+                                </div>
+                                <div class="gallery_hover">
+                                    </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 grid-item cat2 col-md-6">
+                        <a href="{% url 'projects:get_project_page' 'Тестовое задание на работу' %}">
+                            <div class="single-gallery mb-30">
+                                <div class="portfolio-img">
+                                        <img src="{% static 'img/projects/Screenshot_2022-09-15_163009.png' %}" alt="">
+                                </div>
+                                <div class="gallery_hover">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    {% endblock %}d
+
+</body>
+</html>
+
